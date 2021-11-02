@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Assignment 9</title>
+</head>
+<body>
+<div align="center">
+    <h1>Address Book </h1>
+    <a href="new">Create New Address Book Entry</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Street Address</th>
+                <th>Additional Address</th>
+                <th>City or Town</th>
+                <th>State</th>
+                <th>Zip</th>
+                <th>Email</th>
+                <th>Telephone</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="addressbook : ${listAddressBookValues}">
+            	<td th:text="${addressbook.id}">ID</td>
+                <td th:text="${addressbook.first_name}">First Name</td>
+                <td th:text="${addressbook.last_name}">Last Name</td>
+                <td th:text="${addressbook.street_address}">Street Address</td>
+                <td th:text="${addressbook.additional_address}">Additional Address</td>
+                <td th:text="${addressbook.city_or_town}">City or Town</td>
+                <td th:text="${addressbook.state}">State</td>
+                <td th:text="${addressbook.zip_code}">Zip</td>
+                <td th:text="${addressbook.email_address}">Email</td>
+                <td th:text="${addressbook.telephone}">Telephone</td>
+                <td>
+                	<a th:href="@{'/delete/' + ${addressbook.id}}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>    
+</body>
+</html>
