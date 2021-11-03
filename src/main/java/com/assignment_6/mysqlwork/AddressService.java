@@ -13,7 +13,10 @@ public class AddressService {
     @Autowired
     private AddressRepository repo;
 
-    public List<AddressBook> listAll() {
+    public List<AddressBook> listAll(String keyword) {
+        if (keyword != null) {
+            return repo.search(keyword);
+        }
         return repo.findAll();
     }
 
@@ -28,5 +31,7 @@ public class AddressService {
     public void delete(Long id) {
         repo.deleteById(id);
     }
+
+
 }
 

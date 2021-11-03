@@ -1,6 +1,7 @@
 package com.assignment_6.mysqlwork;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,10 +21,13 @@ public class AddressController {
 
     private AddressService service;
 
+    //Added a keyword parameter
     @RequestMapping("/")
-    public String viewHomePage(Model model) {
-        List<AddressBook> listAddressBookValues = service.listAll();
+    public String viewHomePage(Model model, @Param("keyword") String keyword) {
+        List<AddressBook> listAddressBookValues = service.listAll(keyword);
         model.addAttribute("listAddressBookValues", listAddressBookValues);
+        model.addAttribute("keyword", keyword);
+
         return "index";
     }
 
