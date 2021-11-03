@@ -109,4 +109,12 @@ public class AddressBook {
 		this.telephone = telephone;
 	}
 
+	@Override
+	public String toString() {
+		return "AddressBook [id=" + id + ", first_name=" + first_name + ", last_name=" + last_name + ", street_address=" + street_address
+				+", additional_address=" + additional_address + ", city_or_town=" + city_or_town + ", state=" + state + ", zip_code="
+				+ zip_code + ", email_address=" + email_address + ", telephone=" + telephone
+				+ "]";
+	}
+
 }

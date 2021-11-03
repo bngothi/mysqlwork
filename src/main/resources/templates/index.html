@@ -10,6 +10,14 @@
     <h1>Address Book </h1>
     <a href="new">Create New Address Book Entry</a>
     <br/><br/>
+    <form th:action="@{/}">
+        Filter: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
+        &nbsp;
+        <input type="submit" value="Search" />
+        &nbsp;
+        <input type="button" value="Clear" id="btnClear" onclick="clearSearch()" />
+    </form>
+    <br/><br/>
     <table border="1" cellpadding="10">
         <thead>
             <tr>
@@ -44,6 +52,11 @@
             </tr>
         </tbody>
     </table>
-</div>    
+</div>
+<script type="text/javascript">
+	function clearSearch() {
+		window.location = "[[@{/}]]";
+	}
+</script>
 </body>
 </html>
